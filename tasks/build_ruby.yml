@@ -1,0 +1,31 @@
+---
+# install prerequisites and build ruby
+
+- name: install packages for building ruby
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - build-essential
+    - zlib1g
+    - zlib1g-dev 
+    - openssl 
+    - libssl-dev 
+    - libruby1.9.1 
+    - libreadline6
+    - libreadline-dev 
+    - git-core
+  sudo: yes
+  sudo_user: root
+
+# prepend MAKE_OPTS="-j 2" to rbenv install to speed up the build process
+- name: install ruby {{ rbenv_ruby_version }} 
+  shell: executable=/bin/bash
+         chdir=/home/{{ rbenv_user }}
+         export PATH="/home/{{ rbenv_user }}/.rbenv/bin:$PATH"; eval "$(rbenv init -)";
+         RUBY_CONFIGURE_OPTS=--with-readline-dir="/lib/x86_64-linux-gnu/libreadline.so.6.3" MAKE_OPTS="{{ rbenv_ruby_make_opts }}" rbenv install "{{ rbenv_ruby_version }}";
+            rbenv global "{{ rbenv_ruby_version }}";  
+            rbenv rehash 
+
+- name: install bundler
+  command: /home/{{ rbenv_user }}/.rbenv/shims/gem install bundler
+  when: rbenv_install_bundler == True
+

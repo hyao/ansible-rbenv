@@ -1,0 +1,16 @@
+---
+# defaults file for ansible-rbenv
+rbenv_user: deploy
+
+# select which plugins to install
+rbenv_ruby_build: True
+rbenv_vars: True
+rbenv_gem_rehash: True
+rbenv_binstubs: False
+
+# ruby installation
+rbenv_install_ruby: False 
+rbenv_ruby_version: 2.1.2
+rbenv_ruby_make_opts: "-j 2"
+
+rbenv_install_bundler: True
