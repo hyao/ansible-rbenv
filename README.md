@@ -1,7 +1,7 @@
 Ansible Rbenv 
 ==============
 
-Ansible role to deploy rbenv and rbenv plugins (https://github.com/sstephenson/rbenv); You can also use to install ruby using ruby-build plugin, and select which rbenv plugins to install.
+Ansible role to deploy rbenv and rbenv plugins (https://github.com/sstephenson/rbenv); You can also use it to install ruby using ruby-build plugin, and select which rbenv plugins to install.
 
 Requirements
 ------------
