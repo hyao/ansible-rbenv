@@ -42,10 +42,15 @@
        dest=/home/{{ rbenv_user }}/.rbenv/plugins/rbenv-binstubs
   when: rbenv_binstubs == True
 
-- name: install rbenv-vars
+- name: install rbenv-vars plugin
   git: repo=https://github.com/sstephenson/rbenv-vars.git
        dest=/home/{{ rbenv_user }}/.rbenv/plugins/rbenv-vars
   when: rbenv_vars == True
+
+- name: install rbenv-update plugin
+  git: repo=https://github.com/rkh/rbenv-update.git
+       dest=/home/{{ rbenv_user }}/.rbenv/plugins/rbenv-update
+  when: rbenv_update == True
 
 - name: chown .rbenv dir
   command: chown -R {{ rbenv_user }}.{{ rbenv_user }} /home/{{ rbenv_user }}/.rbenv

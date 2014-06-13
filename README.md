@@ -19,6 +19,7 @@ rbenv_ruby_build: True
 rbenv_vars: True
 rbenv_gem_rehash: True
 rbenv_binstubs: False
+rbenv_update: False
 
 # ruby installation; set True to install; rbenv_ruby_version to set ruby version to install
 rbenv_install_ruby: False 
