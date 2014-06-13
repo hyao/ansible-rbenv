@@ -6,7 +6,7 @@
   git: repo=https://github.com/sstephenson/rbenv.git 
        dest=/home/{{ rbenv_user }}/.rbenv
 
-- name: Add rbenv to the PATH
+- name: add rbenv to PATH
   lineinfile:
     dest=/home/{{ rbenv_user }}/.bashrc
     line='export PATH="$HOME/.rbenv/bin:$PATH"'
